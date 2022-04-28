@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include "../../includes/config.php";
 if(!isset($_SESSION['logged_in'])) {
     
     header('location:../../login.php');
@@ -16,7 +16,7 @@ include "../../Auth/middleware.php";
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SMS</title>
+    <title>MCC</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../includes/plugins/fontawesome-free/css/all.min.css">
@@ -49,8 +49,8 @@ include "../../Auth/middleware.php";
                                         <textarea class="textarea" rows="5" cols="50" name="message" required>
                                                     <?php 
                                              
-                                             include('../../includes/config.php');
-												$sql = "SELECT * from announcement WHERE id=1";
+                                            //  include('../../includes/config.php');
+												$sql = "SELECT * from announcements WHERE id=1";
 												$query = $dbh -> prepare($sql);
 
 												$query->execute();
@@ -60,7 +60,7 @@ include "../../Auth/middleware.php";
 												{
 												foreach($results as $result)
 												{		
-												echo $result->Message;
+												echo $result->message;
 												}}
 												?>
                                                     
@@ -73,7 +73,7 @@ include "../../Auth/middleware.php";
                                 <label class="col-sm-4 control-label">Date</label>
                                 <div class="col-sm-8">
 
-                                    <input type="date" name="date" value="<?=$result->Date?>""></input>
+                                    <input type="date" name="date" value="<?=$result->Date?>"></input>
                                     </div>  
                                 </div>
 

@@ -20,7 +20,7 @@ include "../../Auth/middleware.php";
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SMS</title>
+    <title>Change Profile Information</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../includes/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../../includes/dist/css/adminlte.min.css">
@@ -28,7 +28,7 @@ include "../../Auth/middleware.php";
 </head>
 <?php include "../include/TopLayout.php";?>
 <br>
-<div class="content-wrapper">
+<div class="content-wrapper" style="background-image:url('../../includes/images/bg-01.jpg')">
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -36,17 +36,17 @@ include "../../Auth/middleware.php";
                     <div class="card-header">
                         <h3 class="card-title">
                             <span class="nav-icon fas fa-user"></span>
-                            Edit Profile Picture
+                            Profile Information
                         </h3>
 
                     </div>
-
-                    <div class="content" style="background-image:url('../statics/images/bg-01.jpg')">
+                    <br><br>
+                    <div class="content" >
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="card">
-                                        <!-- style="background-image:url('../statics/images/bg-01.jpg') -->
+                                    <div class="card" style="background-image:url('../../includes/images/bg-01.jpg')">
+                                        
                                         <div class="card-body">
                                             <?php
                                 $user=$_SESSION['Role'];
@@ -61,41 +61,36 @@ include "../../Auth/middleware.php";
 
                                     foreach($results as $row)
                                     {
-                                        $Password=md5($row['Password']);
+                                        
                                     ?>
 
                                             <form action='ShowProfile.inc.php' method='POST'>
                                                 <div class="mb-3">
-                                                    <label class="form-label">UserName</label>
+                                                    <label class="form-label">User Name</label>
                                                     <input class="form-control" value="<?php echo $row['UserName']?>"
-                                                        name='UserName'>
+                                                        name='username'>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label class="form-label">Password</label>
-                                                    <input class="form-control" value="<?php echo $Password?>"
-                                                        name='Password'>
+                                                    <label class="form-label">New Password</label>
+                                                    <input type='password' class="form-control" value=""
+                                                        name='password'>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Confirm Password</label>
-                                                    <input class="form-control" value="" name='ConfirmPassword'>
+                                                    <input  type='password' class="form-control" value="" name='confirmpassword'>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Department</label>
                                                     <input class="form-control" value="<?php echo $row['Department']?>"
-                                                        name='SerialNumber'>
+                                                        name='department'>
 
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Occupation</label>
-                                                    <input vtype="text" class="form-control"
-                                                        value="<?php echo $row['Occupation']?>" name='Occupation'>
-
-                                                </div>
+                                                
 
 
-                                                <button name='update' class='btn btn-primary'>Change</button>
+                                                <button name='change' class='btn btn-primary'>Change</button>
                                             </form>
                                             <?php
                                         }

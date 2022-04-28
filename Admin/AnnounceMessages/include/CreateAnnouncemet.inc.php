@@ -7,13 +7,13 @@ $message=trim($_POST['message']);
 $date=$_POST['date'];
 
 if(is_numeric($message)){
-    $_SESSION['status']="UserName Must Be Alphabet";
+    $_SESSION['status']="Message Must Be Alphabet";
   $_SESSION['status_code']="warning";
    header('Location:../CreateAnnouncement.php');
 }
 else{
 
-$step=$dbh->prepare("UPDATE Announcement SET message=:message,date=:date where id=1");
+$step=$dbh->prepare("UPDATE Announcements SET message=:message,date=:date where id=1");
 $step->bindParam(':message',$message,PDO::PARAM_STR);
 $step->bindParam(':date',$date,PDO::PARAM_STR);
 

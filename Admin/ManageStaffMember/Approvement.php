@@ -16,7 +16,7 @@ include "../../Auth/middleware.php";
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Aprove Staff Member</title>
+    <title>Approve Admins</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -38,7 +38,7 @@ include "../../Auth/middleware.php";
                         <h3 class="card-title">
                             <span class="fas fa-user"></span>
 
-                            Approve Staff Member
+                            Approve Users
                         </h3>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ include "../../Auth/middleware.php";
 
                                 <?php
                                            
-                                            $sql = "SELECT * from  Admin ";
+                                            $sql = "SELECT * from Admin  WHERE Role='iadmin'|| Role='sadmin' ";
                                             $query = $dbh -> prepare($sql);
                                             $query->execute();
                                             $results=$query->fetchAll(PDO::FETCH_OBJ);

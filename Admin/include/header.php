@@ -18,8 +18,8 @@
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header"></span>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> Profile
+                        <a href="profile/showprofile.php" class="dropdown-item">
+                            <i class="nav-icon fas fa-user"></i> Profile
                             <span class="float-right text-muted text-sm"></span>
                         </a>
                         <div class="dropdown-divider"></div>
@@ -39,8 +39,8 @@
         <!-- Sidebar -->
         <div class="sidebar">
 
-            <a class="brand-link text-center" href=""><img src="../includes/images/astu_logo.svg" alt="AdminLTE Logo"
-                    class="img-circle" width="40%"></a>
+            <a class="brand-link text-center" href=""><img src="../includes/images/mojo_customs_commission.png"
+                    alt="AdminLTE Logo" class="img-circle" width="90%"></a>
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
@@ -103,36 +103,40 @@
                             </li>
                         </ul>
 
-                    <li class="nav-item has-treeview">
+                        <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-calendar-alt"></i>
-                            <!-- <span class="badge badge-danger navbar-badge">New</span> -->
-                            <p>
-                                Academic Calender
-                                <i class="right fas fa-angle-left"></i>
-                                <span class="right badge badge-danger"></span>
-                            </p>
-                        </a>
+                                <i class="nav-icon far fa-envelope"></i>
+                                <span class="badge badge-danger navbar-badge"></span>
+                                <p>
+                                New Messages
+                                    <i class="right fas fa-angle-left"></i>
+                                    <?php
+                                    $query=$dbh->prepare("SELECT id From Message WHERE status=0 ORDER BY id");
+                                     $query->execute();
+                                    $row=$query->rowCount();
+                                    ?>
+                                    <span class="right badge badge-danger"><?php echo $row;?></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="Message/ShowMessage.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>See Message</p>
+                                    </a>
+                                </li>
+                            </ul>
 
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="CreateAcadamicCalander/CreateAcadamicCalander.php" class="nav-link ">
-                                    <i class="far fa-square nav-icon"></i>
-                                    <p>Create Academic Calender</p>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="CreateAcadamicCalander/ShowAcadamicCalander.php" class="nav-link ">
-                                    <i class="far fa-square nav-icon"></i>
-                                    <p>Edit Academic Calender</p>
-                                </a>
-                            </li>
-                        </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="Message/Statistics.php" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Message Statistics</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-
-                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

@@ -3,7 +3,7 @@
 define('DB_HOST','localhost');
 define('DB_USER','root');
 define('DB_PASS','');
-define('DB_NAME','SMS');
+define('DB_NAME','mcc');
 // Establish database connection.
 try
 {

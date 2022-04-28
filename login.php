@@ -9,7 +9,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ASTU Staff Management Sytsem</title>
+    <title>Mojo Customs Commission</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#44a5de">
     <meta name="msapplication-navbutton-color" content="#44a5de">
@@ -23,12 +23,12 @@ session_start();
 <body class="login-page" id="body" style="min-height: 437.359px;">
     <div id="root">
         <div class="login-box text-center">
-            <div class="login-logo"><a href="http://www.astu.edu.et/"><img src="includes/images/astu_logo.svg"
-                        alt="AdminLTE Logo" class="img-circle" width="20%"><br><b>ASTU</b> Staff Management System</a>
+            <div class="login-logo"><a href="http://www.ecc.gov.et/"><img src="includes/images/mojo_customs_commission.png"
+                        alt="AdminLTE Logo" class="img-circle" width="45%"><br><b>Mojo</b> Customs Commission</a>
             </div>
             <div class="card mb-4">
                 <div class="card-body login-card-body">
-                    <p class="login-box-msg">For Staff Members Only</p>
+                    <p style="color:red" class="login-box-msg">For Approved Users Only</p>
                     <form method="POST" action="Auth/login.inc.php">
                         <div class="input-group mb-3"><input id="user_name" name="username" type="text"
                                 class="form-control" placeholder="Username" value="">
@@ -53,11 +53,6 @@ session_start();
                     </div>
                 </div>
             </div>
-            <!-- <footer class="main-footer">
-
-        <strong>Copyright &copy;2021 <a href="">SMS</a>.</strong> All rights reserved.
-        <div class="float-right d-none d-sm-block"><b>Version</b> 1.0.0</div>
-    </footer> -->
     <?php require_once('includes/notify.php') ?>
 
             <script src="includes/plugins/jquery/jquery.min.js"></script>

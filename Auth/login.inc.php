@@ -22,38 +22,49 @@ if(isset($_POST['login']))
                                              $status= $res['status'];                    
                      }
 
-                     
                  if($cc>0)
                   { 
                       
                      if($status==FALSE)
                      {
-                                 $_SESSION['status']="Not Approved!Contact Your Department Head";
+                                 $_SESSION['status']="Not Approved!Contact Your  Admin";
                                  $_SESSION['status_code']="warning";
                                  header('Location:../login.php');
                                  exist();        
                      } 
                      
                   switch ($Role) 
-                  {
-                        
-                        
-                     case 'Admin':       
-                           $_SESSION['logged_in'] = true;
-                           header('location:../Admin/AdminDashboard.php');
-                           $_SESSION['Role'] = 'Admin';
-                           $username=$_SESSION['username'];
-                        break;
-                        case "Staff":
-                              $_SESSION['logged_in'] = true;
-                              header('Location:../StaffMembers/home1.php');
-                              $_SESSION['Role'] = 'Staff';   
-                              break;
-                        case "Store":
-                                 $_SESSION['logged_in'] = true;
-                                 header('Location:../StoreKepper/home1.php');
-                                 $_SESSION['Role'] = 'Store';
-                        break;
+                  {    
+                        case 'Admin':       
+                                    $_SESSION['logged_in'] = true;
+                                    header('location:../Admin/AdminDashboard.php');
+                                    $_SESSION['Role'] = 'Admin';
+                                    $_SESSION['username'] = $_POST['username']; 
+                                    break;
+                        case "iadmin":
+                                    $_SESSION['logged_in'] = true;
+                                    header('Location:../intelligence Admin/IntelligenceAdminHome.php');
+                                    $_SESSION['Role'] = 'iadmin';  
+                                    $_SESSION['username'] = $_POST['username']; 
+                                    break;
+                        case "sadmin":
+                                    $_SESSION['logged_in'] = true;
+                                    header('Location:../Spot Audit Admin/SpotAuditAdminHome.php');
+                                    $_SESSION['Role'] = 'sadmin';  
+                                    $_SESSION['username'] = $_POST['username']; 
+                                    break;
+                        case "iuser":
+                                    $_SESSION['logged_in'] = true;
+                                    header('Location:../Intelligence Users/IntelligenceUsersHome.php');
+                                    $_SESSION['Role'] = 'iuser';                                  
+                                    $_SESSION['username'] = $_POST['username']; 
+                                    break;
+                        case "suser":
+                                    $_SESSION['logged_in'] = true;
+                                    header('Location:../SpotAudit Users/SpotAuditUsersHome.php');
+                                    $_SESSION['Role'] = 'suser';  
+                                    $_SESSION['username'] = $_POST['username']; 
+                                    break;
                   }
             }
          else{
